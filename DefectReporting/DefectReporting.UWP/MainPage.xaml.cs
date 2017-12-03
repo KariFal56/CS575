@@ -20,6 +20,8 @@ namespace DefectReporting.UWP
         public MainPage()
         {
             this.InitializeComponent();
+            //ZXing.Net.Mobile.Forms.WindowsPhone.ZXingScannerViewRenderer.Init();
+            //ZXing.Net.Mobile.Forms.WindowsUniversal.ZXingScannerViewRenderer.Init();
 
             LoadApplication(new DefectReporting.App());
         }

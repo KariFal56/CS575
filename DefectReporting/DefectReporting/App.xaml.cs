@@ -1,24 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Collections.Generic;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace DefectReporting
 {
     public partial class App : Application
     {
+        static DataBaseAccess database;
+
         public App()
         {
-            InitializeComponent();
+            //InitializeComponent();
+            Resources = new ResourceDictionary();
+            Resources.Add("primaryGreen", Color.FromHex("91CA47"));
+            Resources.Add("primaryDarkGreen", Color.FromHex("6FA22E"));
 
-            MainPage = new DefectReporting.MainPage();
+            var nav = new NavigationPage(new MainPage());
+            nav.BarBackgroundColor = (Color)App.Current.Resources["primaryGreen"];
+            nav.BarTextColor = Color.White;
+
+            MainPage = nav;
+            //MainPage = new MainPage();
         }
+
+        public static DataBaseAccess Database
+         {
+            get
+            {
+                if (database == null)
+                {
+                    database = new DataBaseAccess(DependencyService.Get<IDatabasePath>().GetDatabasePath("DefectReportSQLite.db3"));
+                }
+                return database;
+            }
+        }
+
+        public int ResumeAtDefectReportId { get; set; }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            //app start
         }
 
         protected override void OnSleep()

@@ -22,9 +22,11 @@ namespace DefectReporting.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            UISwitch.Appearance.OnTintColor = UIColor.FromRGB(0x91, 0xCA, 0x47);
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            //ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
+            LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
     }

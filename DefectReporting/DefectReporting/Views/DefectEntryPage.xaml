@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:local="clr-namespace:DefectReporting;assembly=DefectReporting"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   x:Class="DefectReporting.DefectEntryPage"
+                   Title="Defect Entry">
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20, 40, 20, 20" />
+            <On Platform="Android, WinPhone, Windows" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
+      
+    <StackLayout>
+        <Label Text="Defect Information"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        <Label Text="Count" />
+        <Entry Text="{Binding count}" Keyboard = "Numeric"/>
+        <Label Text="Defect" />
+        <Entry Text="{Binding defect}" Keyboard = "Text"/>
+        <Label Text="Disposition" />
+        <Entry Text="{Binding disposition}" Keyboard = "Text"/>
+        <Label x:Name="Date" />
+        <Label Text="{Binding date}"  />
+        <Label x:Name="Id" />
+        <Label Text="{Binding id}"  />
+        <Label x:Name="useDefect" />
+        <Switch IsToggled="{Binding useDefect}" />
+        <Label x:Name="WorkOrder" />
+        <Label Text="{Binding workOrderNumber}"  />
+        <Button x:Name="submit" Text="Submit" Clicked="OnSubmit"/>
+        <Button x:Name="update" Text="Update" Clicked="OnUpdate"/>
+        <Button x:Name="delete" Text="Delete" Clicked="OnDelete"/>
+        <Button x:Name="cancel" Text="Cancel" Clicked="OnCancel"/>
+    </StackLayout>
+    
+</ContentPage>
