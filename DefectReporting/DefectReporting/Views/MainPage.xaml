@@ -11,11 +11,15 @@
     </ContentPage.Padding>
     
     <StackLayout>
+        <Label Text="Defect Reporting"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
         <Label x:Name="instructionLabel" Text="Enter a work order:" />
         <Entry x:Name="workOrderText" Text="123456789" Keyboard = "Default" />
+        <Button x:Name="scanButton" Text="Scan Barcode" Clicked="OnScan"/>
+        <Label x:Name="userMessage" Text="" />
         <Button x:Name="goButton" Text="Go" Clicked="OnGo"/>
         <Button x:Name="goHistoryButton" Text="History" Clicked="OnGoHistory" />
-        <Label Text="{Binding UserMessage}" />
     </StackLayout>
 
 </ContentPage>

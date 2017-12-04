@@ -2,7 +2,7 @@
 
 namespace DefectReporting.Views
 {
-    class DefectEntryPageCS : ContentPage
+    public class DefectEntryPageCS : ContentPage
     {
         public DefectEntryPageCS()
         {
@@ -29,8 +29,8 @@ namespace DefectReporting.Views
             var idLabel = new Label();
             idLabel.SetBinding(Label.TextProperty, "id");
 
-            var submitButton = new Button { Text = "Submit" };
-            submitButton.Clicked += async (sender, e) =>
+            var updateButton = new Button { Text = "Update" };
+            updateButton.Clicked += async (sender, e) =>
             {
                 var defectReportItem = (DefectReportItem)BindingContext;
                 await App.Database.SaveItemAsync(defectReportItem);
@@ -45,20 +45,35 @@ namespace DefectReporting.Views
                 await Navigation.PopAsync();
             };
 
-            var updateButton = new Button { Text = "Update" };
-            updateButton.Clicked += async (sender, e) =>
-            {
-                var defectReportItem = (DefectReportItem)BindingContext;
-                await App.Database.UpdateItemAsync(defectReportItem);
-                await Navigation.PopAsync();
-            };
-
             var cancelButton = new Button { Text = "Cancel" };
             cancelButton.Clicked += async (sender, e) =>
             {
                 await Navigation.PopAsync();
             };
 
+            Content = new StackLayout
+            {
+                Margin = new Thickness(20),
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Children =
+                {
+                    new Label { Text = "Work Order" },
+                    workOrderLabel,
+                    new Label { Text = "Defective Count" },
+                    countEntry,
+                    new Label { Text = "Defect" },
+                    defectEntry,
+                    new Label { Text = "Disposition" },
+                    dispositionEntry,
+                    new Label { Text = "Date" },
+                    dateLabel,
+                    new Label { Text = "Use Defect Again?" },
+                    useDefectSwitch,
+                    updateButton,
+                    deleteButton,
+                    cancelButton
+                }
+            };
         }
     }
 }

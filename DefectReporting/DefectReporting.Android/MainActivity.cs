@@ -16,9 +16,13 @@ namespace DefectReporting.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+
+            //Scanner initializations
+            ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
+            global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            //ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
             base.OnCreate(bundle);
 

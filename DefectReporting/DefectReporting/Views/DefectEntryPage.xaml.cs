@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,17 +12,15 @@ namespace DefectReporting
             InitializeComponent();
         }
 
-        async void OnSubmit(object sender, EventArgs e)
+        public DefectEntryPage(DefectReportItem passedDefect)
         {
-            var defectReportItem = (DefectReportItem)BindingContext;
-            await App.Database.SaveItemAsync(defectReportItem);
-            await Navigation.PopAsync();
+            InitializeComponent();
         }
 
         async void OnUpdate(object sender, EventArgs e)
         {
             var defectReportItem = (DefectReportItem)BindingContext;
-            await App.Database.UpdateItemAsync(defectReportItem);
+            await App.Database.SaveItemAsync(defectReportItem);
             await Navigation.PopAsync();
         }
 

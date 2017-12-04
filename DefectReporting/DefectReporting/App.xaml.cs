@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Diagnostics;
+
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace DefectReporting
@@ -21,7 +23,6 @@ namespace DefectReporting
             nav.BarTextColor = Color.White;
 
             MainPage = nav;
-            //MainPage = new MainPage();
         }
 
         public static DataBaseAccess Database
@@ -30,8 +31,17 @@ namespace DefectReporting
             {
                 if (database == null)
                 {
+                    try
+                    {
                     database = new DataBaseAccess(DependencyService.Get<IDatabasePath>().GetDatabasePath("DefectReportSQLite.db3"));
-                }
+
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                    }
+
+            }
                 return database;
             }
         }

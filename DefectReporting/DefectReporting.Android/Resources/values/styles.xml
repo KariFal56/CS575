@@ -4,6 +4,10 @@
   <style name="Theme.DefectReport" parent="MainTheme.Base">
     
   </style>
+
+  <style name="MainTheme" parent="MainTheme.Base">
+
+  </style>
   
   <!-- Base theme applied no matter what API -->
   <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">

@@ -30,13 +30,17 @@ namespace DefectReporting
 
         public Task<List<DefectReportItem>> GetItemsNotDoneAsync()
         {
-            //Get all items
             return database.QueryAsync<DefectReportItem>("SELECT * FROM [DefectReportItem]");
         }
 
         #endregion
 
         #region Get Defect List
+
+        //public Task<List<String>> GetSelectedDefects ()
+        //{
+        //    return database.QueryAsync<String>("SELECT UNIQUE [defect] FROM [DefectReportItem] WHERE [useDefect] = 1");
+        //}
 
         #endregion
 
@@ -65,12 +69,6 @@ namespace DefectReporting
         {
             //Delete item
             return database.DeleteAsync(newDefect);
-        }
-
-        public Task<int> UpdateItemAsync(DefectReportItem newDefect)
-        {
-            //Update Specific Item
-            return database.UpdateAsync(newDefect);
         }
 
 #endregion

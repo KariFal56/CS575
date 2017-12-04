@@ -7,30 +7,28 @@
     
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="iOS" Value="20, 40, 20, 20" />
-            <On Platform="Android, WinPhone, Windows" Value="20" />
+            <On Platform="iOS" Value="10, 20, 10, 10" />
+            <On Platform="Android, WinPhone, Windows" Value="10" />
         </OnPlatform>
     </ContentPage.Padding>
       
     <StackLayout>
         <Label Text="Defect Information"
-                VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+        <Label x:Name="Id" />
+        <Label Text="{Binding id}"  />
+        <Label x:Name="WorkOrder" />
+        <Label Text="{Binding workOrderNumber}"  />
         <Label Text="Count" />
         <Entry Text="{Binding count}" Keyboard = "Numeric"/>
         <Label Text="Defect" />
         <Entry Text="{Binding defect}" Keyboard = "Text"/>
+        <Label x:Name="useDefect" />
+        <Switch IsToggled="{Binding useDefect}" />
         <Label Text="Disposition" />
         <Entry Text="{Binding disposition}" Keyboard = "Text"/>
         <Label x:Name="Date" />
         <Label Text="{Binding date}"  />
-        <Label x:Name="Id" />
-        <Label Text="{Binding id}"  />
-        <Label x:Name="useDefect" />
-        <Switch IsToggled="{Binding useDefect}" />
-        <Label x:Name="WorkOrder" />
-        <Label Text="{Binding workOrderNumber}"  />
-        <Button x:Name="submit" Text="Submit" Clicked="OnSubmit"/>
         <Button x:Name="update" Text="Update" Clicked="OnUpdate"/>
         <Button x:Name="delete" Text="Delete" Clicked="OnDelete"/>
         <Button x:Name="cancel" Text="Cancel" Clicked="OnCancel"/>
